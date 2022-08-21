@@ -223,7 +223,7 @@ async def translate(origin_text:str,to_lang:str)->str:
 	if get_lang in language_list.values():
 		to_lang = get_key(get_lang)
 		query = origin_text
-		async with aiofiles.open('../../venvs/Lib/site-packages/my_plug_code/translate_js.js', encoding='utf-8') as f:
+		async with aiofiles.open('translate_js.js', encoding='utf-8') as f:
 			js_code = await f.read()
 		create_sign = execjs.compile(js_code)
 		sign = create_sign.call('tl', query)
